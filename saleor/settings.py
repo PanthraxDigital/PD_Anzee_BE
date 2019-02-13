@@ -41,7 +41,7 @@ ADMINS = (
 )
 MANAGERS = ADMINS
 
-INTERNAL_IPS = get_list(os.environ.get('INTERNAL_IPS', '127.0.0.1'))
+INTERNAL_IPS = get_list(os.environ.get('INTERNAL_IPS', '127.0.0.1:8001'))
 
 # Some cloud providers (Heroku) export REDIS_URL variable instead of CACHE_URL
 REDIS_URL = os.environ.get('REDIS_URL')
@@ -55,7 +55,7 @@ DATABASES = {
         conn_max_age=600)}
 
 
-TIME_ZONE = 'America/Chicago'
+TIME_ZONE = 'Asia/Kolkata'
 LANGUAGE_CODE = 'en'
 LANGUAGES = [
     ('ar', _('Arabic')),
@@ -170,7 +170,8 @@ TEMPLATES = [{
         'string_if_invalid': '<< MISSING VARIABLE "%s" >>' if DEBUG else ''}}]
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = os.environ.get('SECRET_KEY')
+#SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = SECRET_KEY=os.urandom(24);
 
 MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -317,8 +318,8 @@ AUTH_USER_MODEL = 'account.User'
 
 LOGIN_URL = '/account/login/'
 
-DEFAULT_COUNTRY = os.environ.get('DEFAULT_COUNTRY', 'US')
-DEFAULT_CURRENCY = os.environ.get('DEFAULT_CURRENCY', 'USD')
+DEFAULT_COUNTRY = os.environ.get('DEFAULT_COUNTRY', 'IN')
+DEFAULT_CURRENCY = os.environ.get('DEFAULT_CURRENCY', 'INR')
 DEFAULT_DECIMAL_PLACES = get_currency_fraction(DEFAULT_CURRENCY)
 DEFAULT_MAX_DIGITS = 12
 AVAILABLE_CURRENCIES = [DEFAULT_CURRENCY]
@@ -378,7 +379,7 @@ bootstrap4 = {
 TEST_RUNNER = 'tests.runner.PytestTestRunner'
 
 ALLOWED_HOSTS = get_list(
-    os.environ.get('ALLOWED_HOSTS', 'localhost,127.0.0.1'))
+    os.environ.get('ALLOWED_HOSTS', 'localhost,127.0.0.1,admin.anzee.in'))
 ALLOWED_GRAPHQL_ORIGINS = os.environ.get('ALLOWED_GRAPHQL_ORIGINS', '*')
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
