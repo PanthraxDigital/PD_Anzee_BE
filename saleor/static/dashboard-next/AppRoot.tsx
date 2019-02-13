@@ -384,7 +384,8 @@ export const AppRoot = withStyles(styles, { name: "AppRoot" })(
                             >
                               <MenuIcon />
                             </IconButton>
-                            <SVG className={classes.logo} src={saleorLogo} />
+                            {/* <SVG className={classes.logo} src={saleorLogo} /> */}
+                            <h3>Anzee.in</h3>
                           </Toolbar>
                           <Toolbar
                             disableGutters
