@@ -23,10 +23,10 @@ import PersonOutline from "@material-ui/icons/PersonOutline";
 import SettingsIcon from "@material-ui/icons/Settings";
 import * as classNames from "classnames";
 import * as React from "react";
-//import SVG from "react-inlinesvg";
+import SVG from "react-inlinesvg";
 
 import { appMountPoint } from ".";
-//import * as saleorLogo from "../images/logo.svg";
+import * as saleorLogo from "../images/logo.svg";
 import { UserContext } from "./auth";
 import { User } from "./auth/types/User";
 import { categoryListUrl } from "./categories/urls";
@@ -384,8 +384,7 @@ export const AppRoot = withStyles(styles, { name: "AppRoot" })(
                             >
                               <MenuIcon />
                             </IconButton>
-                            {/* <SVG className={classes.logo} src={saleorLogo} /> */}
-                            <h3>Anzee.in</h3>
+                            <SVG className={classes.logo} src={saleorLogo} />
                           </Toolbar>
                           <Toolbar
                             disableGutters
